@@ -48,7 +48,7 @@ class VoiceKit(object):
         self.relay.on()
 
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on, Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on Papa", "")
 
     def relay_off(self, hermes, intent_message):
         # terminate the session first if not continue
@@ -59,7 +59,7 @@ class VoiceKit(object):
         self.relay.off()
 
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is off, Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "Relay is off Papa", "")
 
     def answer_temperature(self, hermes, intent_message):
         # terminate the session first if not continue
