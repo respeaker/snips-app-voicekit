@@ -51,7 +51,7 @@ class VoiceKit(object):
             self.config = None
             self.mqtt_address = MQTT_ADDR
 
-        self.relay = grove.grove_relay.Grove(13)
+        self.relay = grove.grove_relay.Grove(12)
         self.temperature_humidity_sensor = grove.grove_temperature_humidity_sensor_sht3x.Grove()
 
         # start listening to MQTT
