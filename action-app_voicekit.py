@@ -64,11 +64,11 @@ class VoiceKit(object):
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.on()
 
-        ser.write("\xFF\x55\x10\xEF\x00\xFF")
+    #    ser.write("\xFF\x55\x10\xEF\x00\xFF")
     #   time.sleep(0.030303030303030303)
-        ser.write("\xFF\x55\x10\xEF\x00\xFF")
+    #    ser.write("\xFF\x55\x10\xEF\x00\xFF")
     #   time.sleep(0.030303030303030303)
-        ser.write("\xFF\x55\x00\xFF\x00\xFF")
+    #    ser.write("\xFF\x55\x00\xFF\x00\xFF")
     #   time.sleep(0.030303030303030303)
 
         # if need to speak the execution result by tts
