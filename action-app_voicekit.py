@@ -8,7 +8,21 @@ import io
 import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
 
+# new for robot
+import time, sys, serial
+
+defaultPort = "COM7"
+ser = serial.Serial()
+
+def init_com(port):
+    ser.baudrate = 57600
+    ser.port = port
+    ser.timeout = 0.5
+    ser.open()
+
 CONFIG_INI = "config.ini"
+
+init_com(defaultPort)
 
 # If this skill is supposed to run on the satellite,
 # please get this mqtt connection info from <config.ini>
@@ -47,8 +61,21 @@ class VoiceKit(object):
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.on()
 
+        # add for robot
+        # if ser.is_open:
+        #    print "hi"
+        # else:
+        #    print "bye";
+
+        ser.write("\xFF\x55\x10\xEF\x00\xFF")
+        time.sleep(0.030303030303030303)
+        ser.write("\xFF\x55\x10\xEF\x00\xFF")
+        time.sleep(0.030303030303030303)
+        ser.write("\xFF\x55\x00\xFF\x00\xFF")
+        time.sleep(0.030303030303030303)
+
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on   Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on again,Papa", "")
 
     def relay_off(self, hermes, intent_message):
         # terminate the session first if not continue
