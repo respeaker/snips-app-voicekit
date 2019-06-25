@@ -8,6 +8,7 @@ import io
 import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
 
+"""
 # new for robot
 import serial
 
@@ -24,6 +25,7 @@ ser = serial.Serial(
     xonxoff=False
 )
 print(ser.isOpen())
+"""
 
 CONFIG_INI = "config.ini"
 
