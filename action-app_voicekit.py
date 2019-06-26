@@ -8,24 +8,9 @@ import io
 import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
 
-"""
+
 # new for robot
 import serial
-
-ser = serial.Serial(
-    port='/dev/ttyUSB7',
-    baudrate=57600,
-    parity=serial.PARITY_NONE,
-    stopbits=serial.STOPBITS_ONE,
-    bytesize=serial.EIGHTBITS,
-    writeTimeout = 0,
-    timeout = 10,
-    rtscts=False,
-    dsrdtr=False,
-    xonxoff=False
-)
-print(ser.isOpen())
-"""
 
 CONFIG_INI = "config.ini"
 
@@ -41,6 +26,18 @@ class VoiceKit(object):
         
         Please change the name refering to your application
     """
+    ser = serial.Serial(
+        port='/dev/ttyUSB7',
+        baudrate=57600,
+        parity=serial.PARITY_NONE,
+        stopbits=serial.STOPBITS_ONE,
+        bytesize=serial.EIGHTBITS,
+        writeTimeout=0,
+        timeout=10,
+        rtscts=False,
+        dsrdtr=False,
+        xonxoff=False
+    )
 
     def __init__(self):
         # get the configuration if needed
@@ -74,7 +71,7 @@ class VoiceKit(object):
     #   time.sleep(0.030303030303030303)
 
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on again,Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on   Papa", "")
 
     def relay_off(self, hermes, intent_message):
         # terminate the session first if not continue
