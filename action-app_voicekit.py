@@ -26,6 +26,7 @@ class VoiceKit(object):
         
         Please change the name refering to your application
     """
+    """
     ser = serial.Serial(
         port='/dev/ttyUSB7',
         baudrate=57600,
@@ -38,7 +39,7 @@ class VoiceKit(object):
         dsrdtr=False,
         xonxoff=False
     )
-
+    """
     def __init__(self):
         # get the configuration if needed
         try:
@@ -50,6 +51,8 @@ class VoiceKit(object):
 
         self.relay = grove.grove_relay.Grove(12)
         self.temperature_humidity_sensor = grove.grove_temperature_humidity_sensor_sht3x.Grove()
+
+        self.serial = serial.Serial(port='/dev/ttyUSB7', baudrate=57600, timeout=1)
 
         # start listening to MQTT
         self.start_blocking()
@@ -63,11 +66,11 @@ class VoiceKit(object):
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.on()
 
-    #    ser.write("\xFF\x55\x10\xEF\x00\xFF")
+    #    self.serial.write("\xFF\x55\x10\xEF\x00\xFF")
     #   time.sleep(0.030303030303030303)
-    #    ser.write("\xFF\x55\x10\xEF\x00\xFF")
+    #    self.serial.write("\xFF\x55\x10\xEF\x00\xFF")
     #   time.sleep(0.030303030303030303)
-    #    ser.write("\xFF\x55\x00\xFF\x00\xFF")
+    #    self.serial.write("\xFF\x55\x00\xFF\x00\xFF")
     #   time.sleep(0.030303030303030303)
 
         # if need to speak the execution result by tts
