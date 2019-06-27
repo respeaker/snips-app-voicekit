@@ -10,9 +10,9 @@ import grove.grove_temperature_humidity_sensor_sht3x
 
 
 # new for robot
-# import serial
+import serial
 
-# ser = serial.Serial(port = '/dev/ttyUSB0', baudrate = 57600, timeout = 1)
+ser = serial.Serial(port = '/dev/ttyUSB0', baudrate = 57600, timeout = 1)
 
 CONFIG_INI = "config.ini"
 
@@ -26,23 +26,9 @@ MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 class VoiceKit(object):
     """Class used to wrap action code with mqtt connection
         
-        Please change the name refering to your application
+        Please change the name referring to your application
     """
 
-    """
-    ser = serial.Serial(
-        port='/dev/ttyUSB7',
-        baudrate=57600,
-        parity=serial.PARITY_NONE,
-        stopbits=serial.STOPBITS_ONE,
-        bytesize=serial.EIGHTBITS,
-        writeTimeout=0,
-        timeout=10,
-        rtscts=False,
-        dsrdtr=False,
-        xonxoff=False
-    )
-    """
     def __init__(self):
         # get the configuration if needed
         try:
