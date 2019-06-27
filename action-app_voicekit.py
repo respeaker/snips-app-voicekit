@@ -12,6 +12,8 @@ import grove.grove_temperature_humidity_sensor_sht3x
 # new for robot
 import serial
 
+ser = serial.Serial(port='/dev/ttyUSB8', baudrate=57600, timeout=1)
+
 CONFIG_INI = "config.ini"
 
 # If this skill is supposed to run on the satellite,
@@ -26,8 +28,6 @@ class VoiceKit(object):
         
         Please change the name refering to your application
     """
-
-    ser = serial.Serial(port='/dev/ttyUSB8', baudrate=57600, timeout=1)
 
     """
     ser = serial.Serial(
