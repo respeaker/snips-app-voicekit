@@ -52,7 +52,7 @@ class VoiceKit(object):
         self.relay = grove.grove_relay.Grove(12)
         self.temperature_humidity_sensor = grove.grove_temperature_humidity_sensor_sht3x.Grove()
 
-        self.serial = serial.Serial(port='/dev/ttyUSB8', baudrate=57600, timeout=1)
+        # self.serial = serial.Serial(port='/dev/ttyUSB8', baudrate=57600, timeout=1)
 
         # start listening to MQTT
         self.start_blocking()
