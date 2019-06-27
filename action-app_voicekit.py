@@ -52,7 +52,7 @@ class VoiceKit(object):
         self.relay = grove.grove_relay.Grove(12)
         self.temperature_humidity_sensor = grove.grove_temperature_humidity_sensor_sht3x.Grove()
 
-        # self.serial = serial.Serial(port='/dev/ttyUSB7', baudrate=57600, timeout=1)
+        self.serial = serial.Serial(port='/dev/ttyUSB8', baudrate=57600, timeout=1)
 
         # start listening to MQTT
         self.start_blocking()
@@ -74,7 +74,7 @@ class VoiceKit(object):
     #   time.sleep(0.030303030303030303)
 
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on   Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on,   Papa", "")
 
     def relay_off(self, hermes, intent_message):
         # terminate the session first if not continue
