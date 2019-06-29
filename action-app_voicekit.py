@@ -12,7 +12,7 @@ import grove.grove_temperature_humidity_sensor_sht3x
 # new for robot
 import serial
 
-ser = serial.Serial(port = '/dev/ttyUSB0', baudrate = 57600, timeout = 1)
+
 
 CONFIG_INI = "config.ini"
 
@@ -41,6 +41,8 @@ class VoiceKit(object):
         self.relay = grove.grove_relay.Grove(12)
         self.temperature_humidity_sensor = grove.grove_temperature_humidity_sensor_sht3x.Grove()
 
+        self.ser = serial.Serial(port='/dev/ttyUSB0', baudrate=57600, timeout=1)
+
         # start listening to MQTT
         self.start_blocking()
         
@@ -53,7 +55,7 @@ class VoiceKit(object):
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.on()
 
-     #    self.serial.write("\xFF\x55\x21\xDE\x00\xFF")
+        self.ser.write("\xFF\x55\x21\xDE\x00\xFF")
 
         # if need to speak the execution result by tts
         hermes.publish_start_session_notification(intent_message.site_id, "Relay is on,   Papa", "")
