@@ -53,7 +53,7 @@ class VoiceKit(object):
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.on()
 
-    #    self.serial.write("\xFF\x55\x10\xEF\x00\xFF")
+        self.serial.write("\xFF\x55\x21\xDE\x00\xFF")
     #   time.sleep(0.030303030303030303)
     #    self.serial.write("\xFF\x55\x10\xEF\x00\xFF")
     #   time.sleep(0.030303030303030303)
