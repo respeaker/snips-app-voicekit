@@ -53,7 +53,7 @@ class VoiceKit(object):
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.on()
 
-        self.serial.write("\xFF\x55\x21\xDE\x00\xFF")
+     #    self.serial.write("\xFF\x55\x21\xDE\x00\xFF")
 
         # if need to speak the execution result by tts
         hermes.publish_start_session_notification(intent_message.site_id, "Relay is on,   Papa", "")
