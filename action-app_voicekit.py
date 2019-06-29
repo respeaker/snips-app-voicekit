@@ -54,11 +54,6 @@ class VoiceKit(object):
         self.relay.on()
 
         self.serial.write("\xFF\x55\x21\xDE\x00\xFF")
-    #   time.sleep(0.030303030303030303)
-    #    self.serial.write("\xFF\x55\x10\xEF\x00\xFF")
-    #   time.sleep(0.030303030303030303)
-    #    self.serial.write("\xFF\x55\x00\xFF\x00\xFF")
-    #   time.sleep(0.030303030303030303)
 
         # if need to speak the execution result by tts
         hermes.publish_start_session_notification(intent_message.site_id, "Relay is on,   Papa", "")
