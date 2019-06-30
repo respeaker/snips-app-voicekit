@@ -7,9 +7,6 @@ from hermes_python.ontology import *
 import io
 import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
-
-
-# new for robot
 import serial
 
 
@@ -40,7 +37,6 @@ class VoiceKit(object):
 
         self.relay = grove.grove_relay.Grove(12)
         self.temperature_humidity_sensor = grove.grove_temperature_humidity_sensor_sht3x.Grove()
-
         self.ser = serial.Serial(port = '/dev/ttyUSB0', baudrate = 57600, timeout = 1)
 
         # start listening to MQTT
@@ -54,9 +50,6 @@ class VoiceKit(object):
         # action code goes here...
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.on()
-
-        # ser = serial.Serial(port='/dev/ttyUSB0', baudrate=57600, timeout=1)
-
         self.ser.write(b'\xFF\x55\x21\xDE\x00\xFF')
 
         # if need to speak the execution result by tts
