@@ -8,14 +8,43 @@ import io
 import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
 import serial
+import board
+import adafruit_dotstar as dotstar
 
+# Using a DotStar Digital LED Matrix with 64 LEDs connected to digital pins
+dots = dotstar.DotStar(board.D13, board.D12, 64, brightness=0.1)
 
+# Initialize matrix
+dots.fill((0, 0, 0))
+
+# Fill in the dots with color
+# Left eye
+dots[49] = (255, 255, 255)
+dots[50] = (255, 255, 255)
+dots[57] = (255, 255, 255)
+dots[58] = (255, 255, 255)
+# Right eye
+dots[53] = (255, 255, 255)
+dots[54] = (255, 255, 255)
+dots[61] = (255, 255, 255)
+dots[62] = (255, 255, 255)
+# Main part of mouth
+dots[18] = (255, 255, 255)
+dots[19] = (255, 255, 255)
+dots[20] = (255, 255, 255)
+dots[21] = (255, 255, 255)
+dots[10] = (255, 255, 255)
+dots[11] = (255, 255, 255)
+dots[12] = (255, 255, 255)
+dots[13] = (255, 255, 255)
+# Smile
+dots[17] = (255, 255, 255)
+dots[24] = (255, 255, 255)
+dots[22] = (255, 255, 255)
+dots[31] = (255, 255, 255)
 
 CONFIG_INI = "config.ini"
 
-# If this skill is supposed to run on the satellite,
-# please get this mqtt connection info from <config.ini>
-# Hint: MQTT server is always running on the master device
 MQTT_IP_ADDR = "localhost"
 MQTT_PORT = 1883
 MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
@@ -23,7 +52,7 @@ MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 class VoiceKit(object):
     """Class used to wrap action code with mqtt connection
         
-        Please change the name referring to your application
+       Please change the name referring to your application
     """
 
     def __init__(self):
