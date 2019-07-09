@@ -5,4 +5,4 @@ grove.py>=0.6
 # More dependency goes here.. 
 pyserial==3.2.1
 board
-adafruit_dotstar
+adafruit-dotstar.py>1.5.0
