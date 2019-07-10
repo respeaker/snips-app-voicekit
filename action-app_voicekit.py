@@ -8,6 +8,7 @@ import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
 import serial
 
+import time
 import board
 import adafruit_dotstar as dotstar
 
@@ -91,6 +92,18 @@ class VoiceKit(object):
         # action code goes here...
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.off()
+        # Wink
+        dots[61] = (0, 0, 0)
+        dots[62] = (0, 0, 0)
+        time.sleep(.05)
+        dots[53] = (0, 0, 0)
+        dots[54] = (0, 0, 0)
+        time.sleep(.05)
+        dots[53] = (255, 255, 255)
+        dots[54] = (255, 255, 255)
+        time.sleep(.05)
+        dots[61] = (255, 255, 255)
+        dots[62] = (255, 255, 255)
 
         # if need to speak the execution result by tts
         hermes.publish_start_session_notification(intent_message.site_id, "Relay is off,   Papa", "")
