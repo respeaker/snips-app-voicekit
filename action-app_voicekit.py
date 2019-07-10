@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# sys.path.append("/usr/local/lib/python3.5/dist-packages")
-
 from snipsTools import SnipsConfigParser
 from hermes_python.hermes import Hermes
 from hermes_python.ontology import *
-# import io
 import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
 import serial
 
-
+'''
 import board
 
 import adafruit_dotstar as dotstar
@@ -47,7 +44,7 @@ dots[17] = (255, 255, 255)
 dots[24] = (255, 255, 255)
 dots[22] = (255, 255, 255)
 dots[31] = (255, 255, 255)
-
+'''
 CONFIG_INI = "config.ini"
 
 MQTT_IP_ADDR = "localhost"
