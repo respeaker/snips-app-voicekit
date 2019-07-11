@@ -7,7 +7,7 @@ from hermes_python.ontology import *
 import grove.grove_relay
 import grove.grove_temperature_humidity_sensor_sht3x
 import serial
-
+'''
 import time
 import board
 import adafruit_dotstar as dotstar
@@ -43,7 +43,7 @@ dots[17] = (255, 255, 255)
 dots[24] = (255, 255, 255)
 dots[22] = (255, 255, 255)
 dots[31] = (255, 255, 255)
-
+'''
 CONFIG_INI = "config.ini"
 
 MQTT_IP_ADDR = "localhost"
@@ -83,7 +83,7 @@ class VoiceKit(object):
         self.ser.write(b'\xFF\x55\x21\xDE\x00\xFF')
 
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on,   Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on, Papa", "")
 
     def relay_off(self, hermes, intent_message):
         # terminate the session first if not continue
@@ -92,6 +92,7 @@ class VoiceKit(object):
         # action code goes here...
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
         self.relay.off()
+        '''
         # Wink
         dots[61] = (0, 0, 0)
         dots[62] = (0, 0, 0)
@@ -104,9 +105,9 @@ class VoiceKit(object):
         time.sleep(.05)
         dots[61] = (255, 255, 255)
         dots[62] = (255, 255, 255)
-
+        '''
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is off,   Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "Relay is off, Papa", "")
 
     def answer_temperature(self, hermes, intent_message):
         # terminate the session first if not continue
