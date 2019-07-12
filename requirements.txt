@@ -4,7 +4,5 @@ grove.py>=0.6
 
 # More dependency goes here..
 pyserial==3.2.1
-
-# adafruit_dotstar
 adafruit-blinka>=2.1.6
 adafruit-circuitpython-dotstar>=1.5.0
