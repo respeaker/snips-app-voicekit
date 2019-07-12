@@ -79,11 +79,11 @@ class VoiceKit(object):
         
         # action code goes here...
         print('[Received] intent: {}'.format(intent_message.intent.intent_name))
-        self.relay.on()
+        # self.relay.on()
         self.ser.write(b'\xFF\x55\x21\xDE\x00\xFF')
 
         # if need to speak the execution result by tts
-        hermes.publish_start_session_notification(intent_message.site_id, "Relay is on, Papa", "")
+        hermes.publish_start_session_notification(intent_message.site_id, "I've turned the relay on", "")
 
     def relay_off(self, hermes, intent_message):
         # terminate the session first if not continue
